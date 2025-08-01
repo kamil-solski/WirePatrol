@@ -1,0 +1,25 @@
+# ── Base URL for the website to attack ─────────────────────────────
+base_url: "https://example_website.com"  # Change to the target website URL
+
+# ── Login Brute Force Configuration ───────────────────────────────
+login:
+  path: "/login"  # The login URL path (relative to the base URL)
+  username: "Admin"  # Username to use for brute force login
+  passwords:
+    - "password123"   # List of passwords to try
+    - "admin123"
+    - "Somepassword"
+  sleep_between_requests: 4
+  timeout: 10
+
+# ── DoS Flood Attack Configuration ───────────────────────────────
+dos:
+  path: "/"  # The URL path to attack with DoS
+  total_requests: 30  # Total number of requests to send in the DoS attack
+  sleep_between_requests: 4  # Time in seconds between each request during the flood
+  timeout: 10
+
+# ── Attack Interval and Execution Settings ───────────────────────
+attack:
+  interval: 10  # Time in seconds to wait between attacks (Brute Force -> DoS Flood)
+  num_iterations: 5  # Number of iterations to run the attacks in sequence
